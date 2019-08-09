@@ -40,7 +40,7 @@ resource "aws_security_group" "Web_Server" {
 }
 ###########Launch with AMI#####################
 resource "aws_launch_configuration" "server" {
-  name = "WebServer-High"
+  name_prefix = "WebServer-High-"
   image_id = data.aws_ami.id_RedHat.id
   instance_type = "t2.micro"
   security_groups = [aws_security_group.Web_Server.id]
@@ -51,7 +51,7 @@ resource "aws_launch_configuration" "server" {
 }
 ###########Auto-scaling group#####################
 resource "aws_autoscaling_group" "web" {
-  name = "Webser for High"
+  name = "Webser for High-${aws_launch_configuration.server.name}"
   launch_configuration = aws_launch_configuration.server.name
   max_size = 2
   min_size = 2
