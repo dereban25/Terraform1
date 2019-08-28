@@ -9,20 +9,13 @@ resource "aws_eip" "elastic_ip" {
 resource "aws_instance" "Web_Server" {
   ami                    = "ami-00fc224d9834053d6" #Amazon linux AMI
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.Security_Web_Server.id]
-  user_data = templatefile("user_data.sh.tpl", {
-    f_name = "Maksym",
-    l_name = "Derbenev",
-    names  = ["Vasya", "Kolya", "Masha", "Donald", "John", "Test", "Maks", "XEEEE"]
-  })
+  vpc_security_group_ids = [aws_security_group.Security_Web.id]
+  key_name = "N.California"
   tags = {
     Name = "Terraform_test"
   }
-  lifecycle {
-    create_before_destroy = true
-  }
 }
-resource "aws_security_group" "Security_Web_Server" {
+resource "aws_security_group" "Security_Web" {
   name        = "Security group for Web_2"
   description = "Test security of Terraform"
   dynamic "ingress" {
