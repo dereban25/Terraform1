@@ -7,8 +7,8 @@ output "webserver_ip_address" {
 }
 
 output "webserver_sq_id" {
-  value = aws_security_group.Security_Web_Server.id
+  value = aws_security_group.Security_Web.id
 }
 output "webserver_sq_arn" {
-  value = aws_security_group.Security_Web_Server.arn
+  value = aws_security_group.Security_Web.arn
 }
