@@ -26,7 +26,7 @@ resource "aws_subnet" "California_subnet_1" {
   availability_zone = data.aws_availability_zones.working.names[0]
   tags = {
     Name = "Subnet 1 in ${data.aws_availability_zones.working.names[0]}"
-    Account = "Subnet 2 for ${data.aws_caller_identity.working.account_id}"
+    Account = "Subnet 1 for ${data.aws_caller_identity.working.account_id}"
     Region = "Region is ${data.aws_region.current.description}"
   }
 }
