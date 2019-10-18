@@ -3,5 +3,9 @@ create file in new branch v4
 =======
 create file in new branch v3
 file v5
+<<<<<<< HEAD
 >>>>>>> test_file
 file v4
+=======
+file v6
+>>>>>>> test_file
